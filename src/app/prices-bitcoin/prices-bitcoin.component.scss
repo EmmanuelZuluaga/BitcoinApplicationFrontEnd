@@ -1,0 +1,38 @@
+@import url(./../../styles.scss);
+
+.card{
+    border-radius: 5px;
+    background-color:  azure;
+    margin: 5px;
+    box-shadow: 0px 3px 6px #00000029;
+    height: 40%;
+    width: 98%;
+}
+
+.title{
+    font-weight: bold;
+    
+}
+
+button{
+    border: none;
+    width: 110px;
+    background-color:aquamarine  ;
+    border-radius: 7px;
+}
+
+.icon-detail{
+    width: 20%;
+    cursor: pointer;
+    color: antiquewhite;
+}
+
+.price-green{
+    color: green;
+    font-weight: bold;
+}
+
+.price-red{
+    color: red;
+    font-weight: bold;
+}
