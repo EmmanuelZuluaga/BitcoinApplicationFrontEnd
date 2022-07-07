@@ -2,26 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
-## Development server
+## About
+ Angular js -Electron js
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ This is the backend of an application, it uses the Coinbase Icloud REST API:  https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs/api-users
+ It shows in real time the value of bitcoin in dollars, date, closing price and price difference from the previous day.
 
-## Code scaffolding
+## Clone repository
+-https://github.com/EmmanuelZuluaga/BitcoinApplicationBackEnd.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation app
 
-## Build
+- npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Run app
+- npm start
