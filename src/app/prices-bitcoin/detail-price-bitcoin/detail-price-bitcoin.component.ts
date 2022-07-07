@@ -25,14 +25,15 @@ export class DetailPriceBitcoinComponent implements OnInit {
       let date = params['date'];
       this.restService.get('/bitcoin/detail/'+date).subscribe({
         next: (response:any) => {
-          if(response.data.closePriceUSD!=undefined){
+          if(response.data.closePriceUSD!=undefined&&
+            response.data.closePriceCOP!=undefined&& 
+            response.data.closePriceEUR!=undefined){
             this.detailPrice=response.data;
             this.stateNetwork=true
           }else{
             this.stateNetwork=false;
           }
           this.state='ok';
-         ;
         },
         error: (_err: any) => {
           console.log('')
