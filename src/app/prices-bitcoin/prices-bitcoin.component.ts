@@ -23,14 +23,15 @@ export class PricesBitcoinComponent implements OnInit {
   public fetchPrices(){
     this.restService.get('/bitcoin/').subscribe({
       next: (response:any) => {
-        this.prices=response.data;
-
-        this.stateNetwork=true;
-      },
-      error: (_err: any) => {
-        console.log('')
-        this.stateNetwork=false;
-      },
+        if(response.data.length>0){
+          this.prices=response.data;
+          this.createBackup(this.prices);
+          this.stateNetwork=true;
+        }else{
+          this.prices=JSON.parse(localStorage.getItem('listPricesBitcoin') || '');
+        }
+     
+      }
     })
     setTimeout(() => {
       this.fetchPrices()
@@ -38,13 +39,19 @@ export class PricesBitcoinComponent implements OnInit {
   }
 
   public goToDetail(index:any){
-  //  window.open('http://localhost:4200/detail-price-bitcoin/2022-07-07', '_blank', 'top=500,left=200,frame=false,nodeIntegration=no')
-    this.router.navigate(['detail-price-bitcoin/'+this.prices[index].date]);
-
-  
-  //  window.open(url, '_blank');
-    
+   this.router.navigate(['detail-price-bitcoin/'+this.prices[index].date]);    
   }
 
-  
+  async createBackup(prices: any){
+    let listDetail:any=[];
+      await prices.forEach((element:any) => {
+        this.restService.get('/bitcoin/detail/'+element.date).subscribe({
+          next: (response:any) => {
+            listDetail.push(response.data)
+            localStorage.setItem('listDetailBitcoin', JSON.stringify(listDetail));
+          }
+        });
+      });
+      localStorage.setItem('listPricesBitcoin', JSON.stringify(prices));
+  }
 }

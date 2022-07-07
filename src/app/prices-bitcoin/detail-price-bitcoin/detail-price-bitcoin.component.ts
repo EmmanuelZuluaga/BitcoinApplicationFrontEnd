@@ -31,19 +31,30 @@ export class DetailPriceBitcoinComponent implements OnInit {
             this.detailPrice=response.data;
             this.stateNetwork=true
           }else{
-            this.stateNetwork=false;
+          this.findDetail(JSON.parse(localStorage.getItem('listDetailBitcoin') || ''))
           }
           this.state='ok';
-        },
-        error: (_err: any) => {
-          console.log('')
-          this.state='ok';
-          this.stateNetwork=false;
-        },
+        }
       });
     });
     setTimeout(() => {
       this.fetchDetailPrice()
      }, 60000);
   }
+
+  public findDetail(list:any){
+    this.route.params.subscribe((params: Params) => {
+      let date = params['date'];
+      list.filter( (detail:any) => {
+          if(detail.date == date){
+            this.detailPrice=detail;
+           
+          }
+        
+    });
+    });
+  }
+
+
+
 }
