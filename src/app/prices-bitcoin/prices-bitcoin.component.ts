@@ -10,7 +10,7 @@ import { RestService } from '../core/services/rest/rest.service';
 export class PricesBitcoinComponent implements OnInit {
 
   public prices:any=[];
-  public stateNetwork:any=false;;
+  public stateNetwork:any=false;
   
 
   constructor(private restService: RestService, private router: Router) { }
@@ -39,12 +39,10 @@ export class PricesBitcoinComponent implements OnInit {
 
   public goToDetail(index:any){
   //  window.open('http://localhost:4200/detail-price-bitcoin/2022-07-07', '_blank', 'top=500,left=200,frame=false,nodeIntegration=no')
-  //  this.router.navigate(['detail-price-bitcoin/'+this.prices[index].date]);
-    const url = this.router.serializeUrl(
-      this.router.createUrlTree(['detail-price-bitcoin/'+this.prices[index].date])
-    );
+    this.router.navigate(['detail-price-bitcoin/'+this.prices[index].date]);
+
   
-    window.open(url, '_blank');
+  //  window.open(url, '_blank');
     
   }
 

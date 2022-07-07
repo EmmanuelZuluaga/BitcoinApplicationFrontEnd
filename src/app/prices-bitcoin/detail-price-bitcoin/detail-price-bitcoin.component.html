@@ -6,7 +6,8 @@
     <div class="background" *ngIf="state=='ok'">
         <div class="card">
             <div class="row">
-
+                    <h3  class="online text-center" *ngIf="stateNetwork"> Online </h3>
+                    <h3 class="offline text-center" *ngIf="!stateNetwork"> Offline </h3>
                 <h1>Detail price Bitcoin </h1>
 
                 <div class="col title">

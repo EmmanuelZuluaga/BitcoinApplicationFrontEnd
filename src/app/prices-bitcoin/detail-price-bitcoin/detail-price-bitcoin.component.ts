@@ -11,6 +11,7 @@ export class DetailPriceBitcoinComponent implements OnInit {
 
   public detailPrice:any;
   public state:any='loading' 
+  public stateNetwork:any=false;
 
   constructor(private route: ActivatedRoute, private router: Router, private restService: RestService) { }
 
@@ -24,15 +25,24 @@ export class DetailPriceBitcoinComponent implements OnInit {
       let date = params['date'];
       this.restService.get('/bitcoin/detail/'+date).subscribe({
         next: (response:any) => {
-          this.detailPrice=response.data;
-          console.log(this.detailPrice)
+          if(response.data.closePriceUSD!=undefined){
+            this.detailPrice=response.data;
+            this.stateNetwork=true
+          }else{
+            this.stateNetwork=false;
+          }
           this.state='ok';
+         ;
         },
         error: (_err: any) => {
           console.log('')
-         // this.stateNetwork=false;
+          this.state='ok';
+          this.stateNetwork=false;
         },
       });
     });
+    setTimeout(() => {
+      this.fetchDetailPrice()
+     }, 60000);
   }
 }
