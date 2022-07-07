@@ -18,7 +18,7 @@ import { DetailPriceBitcoinComponent } from './prices-bitcoin/detail-price-bitco
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PricesBitcoinComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

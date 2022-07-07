@@ -1,37 +1,56 @@
-
-
-<h1> Prices of Bitcoin (USD)</h1>
-<table class="table">
-    <thead>
+<div class="principalMenu">
+  <div class="row">
+    <div class="col">
+      <h1> Prices of Bitcoin (USD)</h1>
+    </div>
+    <div class="col">
+        <h3  class="online" *ngIf="stateNetwork"> Online </h3>
+        <h3 class="offline" *ngIf="!stateNetwork"> Offline </h3>
+    </div>
+  </div>
   
-    </thead>
-    <tbody>
-      <tr *ngFor="let price of prices; let j = index">
-        <h1 *ngIf="j==0">Today</h1>
-        <h1 *ngIf="j==1">2 week ago</h1>
-        <div class="card">
-            <div class="row">
-             
-   
+
+  <a href="http://localhost:4200/detail-price-bitcoin/2022-07-07"> sdsadasda</a>
+
+  <table class="table">
+      <thead>
+    
+      </thead>
+      <tbody>
+        <tr *ngFor="let price of prices; let j = index">
+          <h2 *ngIf="j==0">Today</h2>
+          <h2 *ngIf="j==1">2 week ago</h2>
+          <div class="card">
+              <div class="row">
+               
                 <div class="col title">
-                    Price close
-               </div>
-                <div class="col title">
-                    Difference day
-               </div>
-                <div class="col title">
-                   Detail
-               </div>
-                <div class="w-100"></div>
-                <div class="col">{{price.priceClose | currency:'USD'}}</div>
-                <div class="col price-{{price.difference>=0?'green':'red'}}">{{price.difference | currency:'USD'}}</div>
-                <div class="col"><button> details <img  class="icon-detail" src="../../assets/arrow-forward-outline.svg" alt=""></button></div>
-            </div>
-            
-        </div>
-      
-      </tr>
-      
-      
-    </tbody>
-  </table>
+                  Date
+                 </div>
+                  <div class="col title">
+                      Price close
+                 </div>
+                  <div class="col title">
+                      Difference day
+                 </div>
+                  <div class="col title">
+                     Details
+                 </div>
+                  <div class="w-100"></div>
+                  <div class="col">{{price.date}}</div>
+                  <div class="col">{{price.priceClose | currency:'USD'}}</div>
+                  <div class="col price-{{price.difference>=0?'green':'red'}}">{{price.difference | currency:'USD'}}</div>
+                  <div class="col"><button (click)="goToDetail(j)" > details </button></div>
+              </div>
+              
+          </div>
+        
+        </tr>
+        
+        
+      </tbody>
+    </table>
+
+</div>
+
+
+

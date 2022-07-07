@@ -1,1 +1,32 @@
-<p>detail-price-bitcoin works!</p>
+    <div class="background" *ngIf="state=='loading'">
+        <div class="card">
+                    <h1 class="loading"> Loading ...</h1>
+                    </div>
+    </div>
+    <div class="background" *ngIf="state=='ok'">
+        <div class="card">
+            <div class="row">
+
+                <h1>Detail price Bitcoin </h1>
+
+                <div class="col title">
+                    Date
+                   </div>
+                    <div class="col title">
+                        Price close USD
+                   </div>
+                    <div class="col title">
+                        Price close COP
+                   </div>
+                    <div class="col title">
+                        Price close EUR
+                   </div>
+                    <div class="w-100"></div>
+                    <div class="col">{{detailPrice?.date}}</div>
+                    <div class="col">{{detailPrice?.closePriceUSD | currency:'USD'}}</div>
+                    <div class="col">{{detailPrice?.closePriceCOP | currency:'COP'}}</div>
+                    <div class="col">{{detailPrice?.closePriceEUR | currency:'EUR'}}</div>
+                    
+            </div>
+                    </div>
+    </div>
