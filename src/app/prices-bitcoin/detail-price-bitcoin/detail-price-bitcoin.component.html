@@ -8,6 +8,14 @@
             <div class="row">
                     <h3  class="online text-center" *ngIf="stateNetwork"> Online </h3>
                     <h3 class="offline text-center" *ngIf="!stateNetwork"> Offline </h3>
+
+                    
+                        <p class=" back"
+                        [routerLink]="['/']" 
+                        routerLinkActive="router-link-active">
+                        
+                        return previous page
+                      </p>
                 <h1>Detail price Bitcoin </h1>
 
                 <div class="col title">
